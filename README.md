@@ -1,4 +1,4 @@
-# simpleUsefulClassForAndroid
+# simple-Useful-Class-For-Android
 
 Simple and useful class that for own purpose, including view's state, sharedpreferences and misclick check
 
@@ -11,12 +11,16 @@ Some variable need to be initialized first
     private Context mContext;
     private long mLastClickTime = 0;
 ```
+
 Helper Constructor
 ```java
     Helper(Context context) {
         mContext = context;
     }
 ```
+
+# SharedPreferences method
+
 storePrefrence method
 ```java
    public void storePrefrence(String[] tag, String[] val) { // create prefrence and store prefrence use this same method
@@ -56,6 +60,8 @@ removePrefrence method
     }
 ```
 
+# View state controls method
+
 stateControls method
 ```java
     public static void stateControls(boolean able, ViewGroup vg) { // able for control setEnabled value, vg accept View and its child that you want to control
@@ -69,6 +75,8 @@ stateControls method
     }
 ```
 
+# Misclick check method
+
 misClickCheck method
 ```java
     public boolean misClickCheck() {
@@ -80,6 +88,8 @@ misClickCheck method
         return true;
     }
 ```
+
+# AlertDialog.Builder method
 
 alertBuilderConfirm method
 ```java
@@ -109,10 +119,3 @@ alertBuilder method
         alert.show();
     }
 ```
-
-
-
-
-
-
-
