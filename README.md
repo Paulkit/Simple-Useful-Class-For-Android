@@ -1,6 +1,8 @@
-# simple-Useful-Class-For-Android
+# Simple-Useful-Class-For-Android
 
 Simple and useful class that for own purpose, including view's state, sharedpreferences and misclick check
+[[SharedPreferences method|# SharedPreferences method]]
+
 
 #Using the Helper class's methods
 
