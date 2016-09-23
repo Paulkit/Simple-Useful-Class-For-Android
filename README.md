@@ -94,7 +94,7 @@ misClickCheck method
     }
 ```
 
-### AlertDialog.Builder method
+### AlertDialog Builder method
 
 alertBuilderConfirm method
 ```java
