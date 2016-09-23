@@ -2,10 +2,10 @@
 
 Simple and useful class that for own purpose, including view's state, sharedpreferences and misclick check
 
-#### [SharedPreferences method](#sharedpreferences-method)
-#### [View state controls method](#view-state-controls-method)
-#### [Misclick check method](#misclick-check-method)
-#### [AlertDialog.Builder me](#alertDialog.builder-method)
+#### [SharedPreferences](#sharedpreferences-method)
+#### [View state controls](#view-state-controls-method)
+#### [Misclick check](#misclick-check-method)
+#### [AlertDialog.Builder](#alertDialog.builder-method)
 
 #Using the Helper class's methods
 
