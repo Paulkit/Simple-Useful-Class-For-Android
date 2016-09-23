@@ -12,15 +12,14 @@ import android.view.ViewGroup;
 /**
  * Created by paulck on 9/2/2016.
  */
-public class helper {
+public class Helper {
     private Context mContext;
 
     private long mLastClickTime = 0;
 
-    helper(Context context) {
+    Helper(Context context) {
         mContext = context;
     }
-
 
     public void storePrefrence(String[] tag, String[] val) {
         SharedPreferences.Editor editor = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE).edit();
@@ -43,7 +42,6 @@ public class helper {
 
     public void removePrefrence(String[] tag) {
         SharedPreferences.Editor editor = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE).edit();
-
         for (int i = 0; i < tag.length; i++) {
             editor.remove(tag[i]).apply();
         }
@@ -60,7 +58,6 @@ public class helper {
     }
 
     public boolean misClickCheck() {
-        // mis-clicking prevention, using threshold of 1000 ms
         if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
             return false;
         }
@@ -74,7 +71,6 @@ public class helper {
         alert.setMessage(msg);
         alert.setCancelable(false);
         alert.setPositiveButton(yes, yesListen);
-
         alert.show();
     }
 
