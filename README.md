@@ -14,53 +14,55 @@ Very simple to use; Below code you can just simply copy and paste (remember to i
 Some variable need to be initialized first
 ```java
     private Context mContext;
+    private SharedPreferences.Editor editor;
     private long mLastClickTime = 0;
+    private long misClickTime = 0;
+    private AlertDialog.Builder alert;
 ```
 
 Helper Constructor
 ```java
     Helper(Context context) {
         mContext = context;
+        editor = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE).edit();
+        alert = new AlertDialog.Builder(new ContextThemeWrapper(mContext, R.style.AppThemeNoActionBar));
     }
 ```
 
 ### SharedPreferences method
 
-storePrefrence method
+storePreference method
 ```java
-   public void storePrefrence(String[] tag, String[] val) { // create prefrence and store prefrence use this same method
-        SharedPreferences.Editor editor = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE).edit();
-        for (int i = 0; i < tag.length; i++) {
-            editor.putString(tag[i], val[i]).apply();
+    public void storePreference(String[] tags, String[] val) { // create preference and store preference also use this same method
+        for (int i = 0; i < tags.length; i++) {
+            editor.putString(tags[i], val[i]).apply();
         }
     }
 ```
 
-getPrefrence method
+getPreference method
 ```java
-    public String[] getPrefrence(String[] tag) { // Accept String type array
-        SharedPreferences  editor = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE);
-        for (int i = 0; i < tag.length; i++) {
-            tag[i] = editor.getString(tag[i],null);
+    public String[] getPrefrence(String[] tags) { // assign value to correspond position in tags array
+        for (int i = 0; i < tags.length; i++) {
+            tags[i] = editor.getString(tags[i],null);
         }
-        return tag;
+        return tags;
     }
+
 ```
 
-clearPrefrence method
+clearPreference method
 ```java
-    public void clearPrefrence() { // All SharedPreferences will be erased
-        SharedPreferences.Editor editor = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE).edit();
+    public void clearPreference() { // All SharedPreferences will be erased
         editor.clear().apply();
     }
 ```
 
-removePrefrence method
+removePreference method
 ```java
-    public void removePrefrence(String[] tag) {
-        SharedPreferences.Editor editor = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE).edit();
-        for (int i = 0; i < tag.length; i++) {
-            editor.remove(tag[i]).apply();
+  public void removePreference(String[] tags) {
+        for (int i = 0; i < tags.length; i++) {
+            editor.remove(tags[i]).apply();
         }
     }
 ```
@@ -69,7 +71,7 @@ removePrefrence method
 
 stateControls method
 ```java
-    public static void stateControls(boolean able, ViewGroup vg) { // able for control setEnabled value, vg accept View and its child that you want to control
+    public static void stateControls(boolean able, ViewGroup vg) {
         for (int i = 0; i < vg.getChildCount(); i++) {
             View child = vg.getChildAt(i);
             child.setEnabled(able);
@@ -85,8 +87,7 @@ stateControls method
 misClickCheck method
 ```java
     public boolean misClickCheck() {
-        // mis-clicking prevention, using threshold of 1000 ms
-        if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+        if (SystemClock.elapsedRealtime() - mLastClickTime < misClickTime) {
             return false;
         }
         mLastClickTime = SystemClock.elapsedRealtime();
@@ -98,8 +99,7 @@ misClickCheck method
 
 alertBuilderConfirm method
 ```java
-  public void alertBuilderConfirm(String title, String msg, String yes, DialogInterface.OnClickListener yesListen) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(mContext, R.style.AppThemeNoActionBar));
+    public void alertBuilderConfirm(String title, String msg, String yes, DialogInterface.OnClickListener yesListen) {
         alert.setTitle(title);
         alert.setMessage(msg);
         alert.setCancelable(false);
@@ -110,8 +110,7 @@ alertBuilderConfirm method
 
 alertBuilder method
 ```java
-  public void alertBuilder(String title, String msg, String yes, String no, DialogInterface.OnClickListener yesListen, DialogInterface.OnClickListener noListen) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(mContext, R.style.AppThemeNoActionBar));
+    public void alertBuilder(String title, String msg, String yes, String no, DialogInterface.OnClickListener yesListen, DialogInterface.OnClickListener noListen) {
         alert.setTitle(title);
         alert.setMessage(msg);
         alert.setCancelable(false);

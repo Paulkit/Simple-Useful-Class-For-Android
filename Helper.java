@@ -1,5 +1,3 @@
-package androidsugar.paulck.androidsugar;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,41 +8,41 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by paulck on 9/2/2016.
+ * Created by PaulCK on 9/2/2016.
  */
 public class Helper {
     private Context mContext;
-
+    private SharedPreferences.Editor editor;
     private long mLastClickTime = 0;
+    private long misClickTime = 0;
+    private AlertDialog.Builder alert;
 
     Helper(Context context) {
         mContext = context;
+        editor = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE).edit();
+        alert = new AlertDialog.Builder(new ContextThemeWrapper(mContext, R.style.AppThemeNoActionBar));
     }
 
-    public void storePrefrence(String[] tag, String[] val) {
-        SharedPreferences.Editor editor = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE).edit();
-        for (int i = 0; i < tag.length; i++) {
-            editor.putString(tag[i], val[i]).apply();
+    public void storePreference(String[] tags, String[] val) {
+        for (int i = 0; i < tags.length; i++) {
+            editor.putString(tags[i], val[i]).apply();
         }
     }
-    public String[] getPrefrence(String[] tag) {
-        SharedPreferences  editor = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE);
-        for (int i = 0; i < tag.length; i++) {
-            tag[i] = editor.getString(tag[i],null);
+    public String[] getPreference(String[] tags) {
+        for (int i = 0; i < tags.length; i++) {
+            tags[i] = editor.getString(tags[i],null);
         }
-        return tag;
+        return tags;
     }
 
-    public void clearPrefrence() {
-        SharedPreferences.Editor editor = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE).edit();
+   public void removePreference(String[] tags) {
+        for (int i = 0; i < tags.length; i++) {
+            editor.remove(tags[i]).apply();
+        }
+    }
+
+    public void clearPreference() {
         editor.clear().apply();
-    }
-
-    public void removePrefrence(String[] tag) {
-        SharedPreferences.Editor editor = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE).edit();
-        for (int i = 0; i < tag.length; i++) {
-            editor.remove(tag[i]).apply();
-        }
     }
 
     public static void stateControls(boolean able, ViewGroup vg) {
@@ -58,7 +56,7 @@ public class Helper {
     }
 
     public boolean misClickCheck() {
-        if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+        if (SystemClock.elapsedRealtime() - mLastClickTime < misClickTime) {
             return false;
         }
         mLastClickTime = SystemClock.elapsedRealtime();
@@ -66,7 +64,6 @@ public class Helper {
     }
 
     public void alertBuilderConfirm(String title, String msg, String yes, DialogInterface.OnClickListener yesListen) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(mContext, R.style.AppThemeNoActionBar));
         alert.setTitle(title);
         alert.setMessage(msg);
         alert.setCancelable(false);
@@ -75,7 +72,6 @@ public class Helper {
     }
 
     public void alertBuilder(String title, String msg, String yes, String no, DialogInterface.OnClickListener yesListen, DialogInterface.OnClickListener noListen) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(mContext, R.style.AppThemeNoActionBar));
         alert.setTitle(title);
         alert.setMessage(msg);
         alert.setCancelable(false);
