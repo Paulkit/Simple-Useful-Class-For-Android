@@ -1,8 +1,11 @@
 # Simple-Useful-Class-For-Android
 
 Simple and useful class that for own purpose, including view's state, sharedpreferences and misclick check
-[[SharedPreferences method|# SharedPreferences method]]
 
+#### [SharedPreferences method](#sharedPreferences-method)
+#### [Put passwords and sensitive data in gradle.properties](#gradle-configuration)
+#### [Use the Jackson library to parse JSON data](#libraries)
+#### [Don't write your own HTTP client, use Volley or OkHttp libraries](#networklibs)
 
 #Using the Helper class's methods
 
@@ -21,7 +24,7 @@ Helper Constructor
     }
 ```
 
-# SharedPreferences method
+### SharedPreferences method
 
 storePrefrence method
 ```java
