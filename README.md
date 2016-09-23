@@ -5,7 +5,7 @@ Simple and useful class that for own purpose, including view's state, sharedpref
 #### [SharedPreferences](#sharedpreferences-method)
 #### [View state controls](#view-state-controls-method)
 #### [Misclick check](#misclick-check-method)
-#### [AlertDialog Builder](#alertDialog-builder-method)
+#### [AlertDialog Builder](#alertdialog-builder-method)
 
 #Using the Helper class's methods
 
