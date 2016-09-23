@@ -2,10 +2,10 @@
 
 Simple and useful class that for own purpose, including view's state, sharedpreferences and misclick check
 
-#### [SharedPreferences method](#sharedPreferences-method)
-#### [Put passwords and sensitive data in gradle.properties](#gradle-configuration)
-#### [Use the Jackson library to parse JSON data](#libraries)
-#### [Don't write your own HTTP client, use Volley or OkHttp libraries](#networklibs)
+#### [SharedPreferences method](#SharedPreferences method)
+#### [View state controls method](#View state controls method)
+#### [Misclick check method](#Misclick check method)
+#### [AlertDialog.Builder me](#AlertDialog.Builder method)
 
 #Using the Helper class's methods
 
@@ -65,7 +65,7 @@ removePrefrence method
     }
 ```
 
-# View state controls method
+### View state controls method
 
 stateControls method
 ```java
@@ -80,7 +80,7 @@ stateControls method
     }
 ```
 
-# Misclick check method
+### Misclick check method
 
 misClickCheck method
 ```java
@@ -94,7 +94,7 @@ misClickCheck method
     }
 ```
 
-# AlertDialog.Builder method
+### AlertDialog.Builder method
 
 alertBuilderConfirm method
 ```java
