@@ -26,9 +26,9 @@ Helper Constructor
 ```java
     Helper(Context context) {
         mContext = context;
-        editor = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE).edit();
-        prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
         alert = new AlertDialog.Builder(new ContextThemeWrapper(mContext, R.style.AppThemeNoActionBar));
+        prefs = mContext.getSharedPreferences(mContext.getPackageName(), mContext.MODE_PRIVATE);
+        editor = prefs.edit();
     }
 ```
 
