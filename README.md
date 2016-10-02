@@ -6,7 +6,6 @@ Simple and useful class that for own purpose, including view's state, sharedpref
 #### [View state controls](#view-state-controls-method)
 #### [Misclick check](#misclick-check-method)
 #### [AlertDialog Builder](#alertdialog-builder-method)
-#### [AppThemeNoActionBar style](#appthemenoactionbar-style)
 
 
 #Using the Helper class's methods
@@ -125,7 +124,7 @@ alertBuilder method
         alert.show();
     }
 ```
-### AppThemeNoActionBar style
+R.style.AppThemeNoActionBar
 ```xml
     <style name="AppThemeNoActionBar" parent="AppTheme.NoActionBar">
         <item name="android:textSize">@dimen/text_middle</item> <!-- set the text size you like in dimen.xml -->
