@@ -16,7 +16,7 @@ Some variable need to be initialized first
 ```java
     private Context mContext;
     private SharedPreferences.Editor editor;
-    private  SharedPreferences prefs;
+    private SharedPreferences prefs;
     private long mLastClickTime = 0;
     private long misClickTime = 0;
     private AlertDialog.Builder alert;
