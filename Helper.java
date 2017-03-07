@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 public class Helper {
     private Context mContext;
     private SharedPreferences.Editor editor;
+    private SharedPreferences preferences;
     private long mLastClickTime = 0;
     private long misClickTime = 0;
     private AlertDialog.Builder alert;
@@ -20,6 +21,7 @@ public class Helper {
     Helper(Context context) {
         mContext = context;
         editor = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE).edit();
+        preferences = mContext.getSharedPreferences(mContext.getPackageName(), Context.MODE_PRIVATE);
         alert = new AlertDialog.Builder(new ContextThemeWrapper(mContext, R.style.AppThemeNoActionBar));
     }
 
@@ -30,7 +32,7 @@ public class Helper {
     }
     public String[] getPreference(String[] tags) {
         for (int i = 0; i < tags.length; i++) {
-            tags[i] = editor.getString(tags[i],null);
+            tags[i] = preferences.getString(tags[i],null);
         }
         return tags;
     }
