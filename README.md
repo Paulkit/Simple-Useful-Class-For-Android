@@ -1,4 +1,4 @@
-# Simple-Useful-Class-For-Android
+# Simple Useful Class For Android
 
 Simple and useful class that for own purpose, including view's state, sharedpreferences and misclick check
 
@@ -8,9 +8,8 @@ Simple and useful class that for own purpose, including view's state, sharedpref
 #### [AlertDialog Builder](#alertdialog-builder-method)
 
 
-#Using the Helper class's methods
+This example using Helper.java as demo and you can complie and good to go. Still some setup need to be made by yourself (R.style.AppThemeNoActionBar for example)
 
-Very simple to use; Below code you can just simply copy and paste (remember to import library) and actually no need to pull this git:)
 
 Some variable need to be initialized first
 ```java
