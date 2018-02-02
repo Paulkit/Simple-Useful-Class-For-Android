@@ -11,7 +11,7 @@ Simple and useful class that for own purpose, including view's state, sharedpref
 This example using Helper.java as demo and you can complie and good to go. Still some setup need to be made by yourself (R.style.AppThemeNoActionBar for example)
 
 
-Some variable need to be initialized first
+Some variables need to be initialized first
 ```java
     private Context mContext;
     private SharedPreferences.Editor editor;
